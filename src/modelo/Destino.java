@@ -6,10 +6,10 @@ import java.util.Objects;
 
 public class Destino {
    
-   int idDestino;
-   String nombre;
-   String pais;
-   boolean activo;
+   private int idDestino;
+   private String nombre;
+   private String pais;
+   private boolean activo;
 
     public Destino() {
     }

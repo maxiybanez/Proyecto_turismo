@@ -6,11 +6,11 @@ import java.util.Objects;
 
 public class Cliente {
     
-    int idCliente;
-    String nombre;
-    String apellido;
-    long dni;
-    boolean activo;
+    private int idCliente;
+    private String nombre;
+    private String apellido;
+    private long dni;
+    private boolean activo;
 
     public Cliente() {
     }

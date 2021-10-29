@@ -6,11 +6,11 @@ import java.util.Objects;
 
 public class Transporte {
 
-    int idTransporte;
-    Destino destino;
-    String tipoDeTasporte;
-    float costo;
-    boolean activo;
+    private int idTransporte;
+    private Destino destino;
+    private String tipoDeTasporte;
+    private float costo;
+    private boolean activo;
 
     public Transporte() {
     }

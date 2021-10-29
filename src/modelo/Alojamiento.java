@@ -5,13 +5,13 @@ import java.util.Objects;
 
 public class Alojamiento {
    
-   int idAlojamiento;
-   Destino destino;
-   ExtraAlojamiento extraAloj;
-   String tipoAlojamiento;
-   float costo;
-   String nombre;
-   boolean activo;
+   private int idAlojamiento;
+   private Destino destino;
+   private ExtraAlojamiento extraAloj;
+   private String tipoAlojamiento;
+   private float costo;
+   private String nombre;
+   private boolean activo;
 
     public Alojamiento() {
     }

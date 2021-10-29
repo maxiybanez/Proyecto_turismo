@@ -7,14 +7,14 @@ import java.util.Objects;
 
 public class Paquete {
     private int idPaquete;
-    Transporte trasporte;
-    Alojamiento alojameinto;
-    Cliente cliente;
-    LocalDate fechaInicio;
-    LocalDate fechaFin;
-    LocalDate fechaEmision;
-    float costoTotal;
-    boolean activo;
+    private Transporte trasporte;
+    private Alojamiento alojameinto;
+    private Cliente cliente;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+    private LocalDate fechaEmision;
+    private float costoTotal;
+    private boolean activo;
 
     public Paquete() {
     }

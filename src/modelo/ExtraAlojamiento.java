@@ -6,10 +6,10 @@ import java.util.Objects;
 
 public class ExtraAlojamiento {
     
-    int idExtraAlojamiento;
-    String tipoMenu;
-    float costo;
-    boolean activo;
+    private int idExtraAlojamiento;
+    private String tipoMenu;
+    private float costo;
+    private boolean activo;
 
     public ExtraAlojamiento() {
     }
