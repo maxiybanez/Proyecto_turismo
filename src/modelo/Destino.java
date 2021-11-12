@@ -27,6 +27,8 @@ public class Destino {
         this.activo = activo;
     }
 
+    
+    
     public int getIdDestino() {
         return idDestino;
     }

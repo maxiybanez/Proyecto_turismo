@@ -8,24 +8,24 @@ public class Transporte {
 
     private int idTransporte;
     private Destino destino;
-    private String tipoDeTasporte;
+    private String tipoDeTransporte;
     private float costo;
     private boolean activo;
 
     public Transporte() {
     }
 
-    public Transporte(Destino destino, String tipoDeTasporte, float costo, boolean activo) {
+    public Transporte(Destino destino, String tipoDeTansporte, float costo, boolean activo) {
         this.destino = destino;
-        this.tipoDeTasporte = tipoDeTasporte;
+        this.tipoDeTransporte = tipoDeTansporte;
         this.costo = costo;
         this.activo = activo;
     }
 
-    public Transporte(int idTransporte, Destino destino, String tipoDeTasporte, float costo, boolean activo) {
+    public Transporte(int idTransporte, Destino destino, String tipoDeTansporte, float costo, boolean activo) {
         this.idTransporte = idTransporte;
         this.destino = destino;
-        this.tipoDeTasporte = tipoDeTasporte;
+        this.tipoDeTransporte = tipoDeTansporte;
         this.costo = costo;
         this.activo = activo;
     }
@@ -46,12 +46,12 @@ public class Transporte {
         this.destino = destino;
     }
 
-    public String getTipoDeTasporte() {
-        return tipoDeTasporte;
+    public String getTipoDeTransporte() {
+        return this.tipoDeTransporte;
     }
 
-    public void setTipoDeTasporte(String tipoDeTasporte) {
-        this.tipoDeTasporte = tipoDeTasporte;
+    public void setTipoDeTransporte(String tipoDeTransporte) {
+        this.tipoDeTransporte = tipoDeTransporte;
     }
 
     public float getCosto() {
@@ -75,7 +75,7 @@ public class Transporte {
         int hash = 3;
         hash = 41 * hash + this.idTransporte;
         hash = 41 * hash + Objects.hashCode(this.destino);
-        hash = 41 * hash + Objects.hashCode(this.tipoDeTasporte);
+        hash = 41 * hash + Objects.hashCode(this.tipoDeTransporte);
         hash = 41 * hash + Float.floatToIntBits(this.costo);
         hash = 41 * hash + (this.activo ? 1 : 0);
         return hash;
@@ -102,7 +102,7 @@ public class Transporte {
         if (this.activo != other.activo) {
             return false;
         }
-        if (!Objects.equals(this.tipoDeTasporte, other.tipoDeTasporte)) {
+        if (!Objects.equals(this.tipoDeTransporte, other.tipoDeTransporte)) {
             return false;
         }
         if (!Objects.equals(this.destino, other.destino)) {
@@ -113,7 +113,7 @@ public class Transporte {
 
     @Override
     public String toString() {
-        return "Transporte{" + "idTransporte=" + idTransporte + ", destino=" + destino + ", tipoDeTasporte=" + tipoDeTasporte + ", costo=" + costo + ", activo=" + activo + '}';
+        return "Transporte{" + "idTransporte=" + idTransporte + ", destino=" + destino + ", tipoDeTasporte=" + tipoDeTransporte + ", costo=" + costo + ", activo=" + activo + '}';
     }
     
     
