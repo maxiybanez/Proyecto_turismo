@@ -7,28 +7,27 @@ public class Alojamiento {
    
    private int idAlojamiento;
    private Destino destino;
-   private ExtraAlojamiento extraAloj;
    private String tipoAlojamiento;
    private float costo;
    private String nombre;
    private boolean activo;
 
+   
+   
     public Alojamiento() {
     }
 
-    public Alojamiento(Destino destino, ExtraAlojamiento extraAloj, String tipoAlojamiento, float costo, String nombre, boolean activo) {
+    public Alojamiento(Destino destino, String tipoAlojamiento, float costo, String nombre, boolean activo) {
         this.destino = destino;
-        this.extraAloj = extraAloj;
         this.tipoAlojamiento = tipoAlojamiento;
         this.costo = costo;
         this.nombre = nombre;
         this.activo = activo;
     }
 
-    public Alojamiento(int idAlojamiento, Destino destino, ExtraAlojamiento extraAloj, String tipoAlojamiento, float costo, String nombre, boolean activo) {
+    public Alojamiento(int idAlojamiento, Destino destino, String tipoAlojamiento, float costo, String nombre, boolean activo) {
         this.idAlojamiento = idAlojamiento;
         this.destino = destino;
-        this.extraAloj = extraAloj;
         this.tipoAlojamiento = tipoAlojamiento;
         this.costo = costo;
         this.nombre = nombre;
@@ -49,14 +48,6 @@ public class Alojamiento {
 
     public void setDestino(Destino destino) {
         this.destino = destino;
-    }
-
-    public ExtraAlojamiento getExtraAloj() {
-        return extraAloj;
-    }
-
-    public void setExtraAloj(ExtraAlojamiento extraAloj) {
-        this.extraAloj = extraAloj;
     }
 
     public String getTipoAlojamiento() {
@@ -93,14 +84,13 @@ public class Alojamiento {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + this.idAlojamiento;
-        hash = 17 * hash + Objects.hashCode(this.destino);
-        hash = 17 * hash + Objects.hashCode(this.extraAloj);
-        hash = 17 * hash + Objects.hashCode(this.tipoAlojamiento);
-        hash = 17 * hash + Float.floatToIntBits(this.costo);
-        hash = 17 * hash + Objects.hashCode(this.nombre);
-        hash = 17 * hash + (this.activo ? 1 : 0);
+        int hash = 3;
+        hash = 89 * hash + this.idAlojamiento;
+        hash = 89 * hash + Objects.hashCode(this.destino);
+        hash = 89 * hash + Objects.hashCode(this.tipoAlojamiento);
+        hash = 89 * hash + Float.floatToIntBits(this.costo);
+        hash = 89 * hash + Objects.hashCode(this.nombre);
+        hash = 89 * hash + (this.activo ? 1 : 0);
         return hash;
     }
 
@@ -134,17 +124,17 @@ public class Alojamiento {
         if (!Objects.equals(this.destino, other.destino)) {
             return false;
         }
-        if (!Objects.equals(this.extraAloj, other.extraAloj)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Alojamiento{" + "idAlojamiento=" + idAlojamiento + ", destino=" + destino + ", extraAloj=" + extraAloj + ", tipoAlojamiento=" + tipoAlojamiento + ", costo=" + costo + ", nombre=" + nombre + ", activo=" + activo + '}';
+        return "Alojamiento{" + "idAlojamiento=" + idAlojamiento + ", destino=" + destino + ", tipoAlojamiento=" + tipoAlojamiento + ", costo=" + costo + ", nombre=" + nombre + ", activo=" + activo + '}';
     }
+
    
-   
+    
+    
+
    
 }

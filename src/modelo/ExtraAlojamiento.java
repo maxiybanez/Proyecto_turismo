@@ -7,21 +7,27 @@ import java.util.Objects;
 public class ExtraAlojamiento {
     
     private int idExtraAlojamiento;
+    private Alojamiento alojameinto;
     private String tipoMenu;
     private float costo;
     private boolean activo;
 
+    
+    
     public ExtraAlojamiento() {
+    
     }
 
-    public ExtraAlojamiento(String tipoMenu, float costo, boolean activo) {
+    public ExtraAlojamiento(Alojamiento alojameinto, String tipoMenu, float costo, boolean activo) {
+        this.alojameinto = alojameinto;
         this.tipoMenu = tipoMenu;
         this.costo = costo;
         this.activo = activo;
     }
 
-    public ExtraAlojamiento(int idExtraAlojamiento, String tipoMenu, float costo, boolean activo) {
+    public ExtraAlojamiento(int idExtraAlojamiento, Alojamiento alojameinto, String tipoMenu, float costo, boolean activo) {
         this.idExtraAlojamiento = idExtraAlojamiento;
+        this.alojameinto = alojameinto;
         this.tipoMenu = tipoMenu;
         this.costo = costo;
         this.activo = activo;
@@ -33,6 +39,14 @@ public class ExtraAlojamiento {
 
     public void setIdExtraAlojamiento(int idExtraAlojamiento) {
         this.idExtraAlojamiento = idExtraAlojamiento;
+    }
+
+    public Alojamiento getAlojameinto() {
+        return alojameinto;
+    }
+
+    public void setAlojameinto(Alojamiento alojameinto) {
+        this.alojameinto = alojameinto;
     }
 
     public String getTipoMenu() {
@@ -61,11 +75,12 @@ public class ExtraAlojamiento {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + this.idExtraAlojamiento;
-        hash = 41 * hash + Objects.hashCode(this.tipoMenu);
-        hash = 41 * hash + Float.floatToIntBits(this.costo);
-        hash = 41 * hash + (this.activo ? 1 : 0);
+        int hash = 5;
+        hash = 47 * hash + this.idExtraAlojamiento;
+        hash = 47 * hash + Objects.hashCode(this.alojameinto);
+        hash = 47 * hash + Objects.hashCode(this.tipoMenu);
+        hash = 47 * hash + Float.floatToIntBits(this.costo);
+        hash = 47 * hash + (this.activo ? 1 : 0);
         return hash;
     }
 
@@ -93,14 +108,25 @@ public class ExtraAlojamiento {
         if (!Objects.equals(this.tipoMenu, other.tipoMenu)) {
             return false;
         }
+        if (!Objects.equals(this.alojameinto, other.alojameinto)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "ExtraAlojamiento{" + "idExtraAlojamiento=" + idExtraAlojamiento + ", tipoMenu=" + tipoMenu + ", costo=" + costo + ", activo=" + activo + '}';
+        return "ExtraAlojamiento{" + "idExtraAlojamiento=" + idExtraAlojamiento + ", alojameinto=" + alojameinto + ", tipoMenu=" + tipoMenu + ", costo=" + costo + ", activo=" + activo + '}';
     }
+
     
     
     
-}
+    
+    
+    
+    
+    
+    
+    
+}  
