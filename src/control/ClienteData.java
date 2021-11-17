@@ -192,8 +192,7 @@ public class ClienteData {
           ArrayList<Cliente> clienteLista = new ArrayList<>();
           
           String sentenciaSql = "SELECT * "
-                              + "FROM cliente "
-                              + "WHERE activo = true";                          
+                              + "FROM cliente ";                          
           
           try {
               
@@ -223,7 +222,44 @@ public class ClienteData {
         return clienteLista;
     }
     //--------------------------------------------------------------------------
-    
+        //---METODO-----------------------------------------------------------------
+    public ArrayList<Cliente> listarSoloClientesActivos(){
+        
+          Cliente clienteObj = null;
+          ArrayList<Cliente> clienteLista = new ArrayList<>();
+          
+          String sentenciaSql = "SELECT * "
+                              + "FROM cliente "
+                              + "WHERE activo = true ";                          
+          
+          try {
+              
+                PreparedStatement prepSt = conexion.prepareStatement(sentenciaSql); 
+         
+                ResultSet resultSet = prepSt.executeQuery();  
+
+                while(resultSet.next()){                                        
+
+                    clienteObj = new Cliente();
+
+                    clienteObj.setIdCliente(resultSet.getInt("idCliente"));
+                    clienteObj.setNombre(resultSet.getString("nombre"));
+                    clienteObj.setApellido(resultSet.getString("apellido"));
+                    clienteObj.setDni(resultSet.getLong("dni"));
+                    clienteObj.setActivo(resultSet.getBoolean("activo"));
+                
+                    clienteLista.add(clienteObj);                                
+                }    
+                
+                prepSt.close();                                             
+            
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"Error al obtener lista de Clientes!" + ex); 
+            }
+   
+        return clienteLista;
+    }
+    //--------------------------------------------------------------------------
     
     
     

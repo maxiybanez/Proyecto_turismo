@@ -105,40 +105,9 @@ public class Paquete {
     }
 
     public float getCostoTotal() {
-        
-            int cantidadDeDias = (int) ChronoUnit.DAYS.between(fechaInicio, fechaFin);
-            int MesInicio = (int) ChronoUnit.MONTHS.between(fechaInicio, fechaFin);
-
-            //  Calculamos el costo total 
-            
-            float costoTrasporte = transporte.getCosto();
-
-            float costoAlojamientoXLosDias = extraAlojamiento.getAlojameinto().getIdAlojamiento() * cantidadDeDias ;
-
-            float costoExtraAlojamientoXLosDias  = (extraAlojamiento.getCosto() * cantidadDeDias );  
-         
-            costoTotal = (costoTrasporte + costoAlojamientoXLosDias + costoExtraAlojamientoXLosDias);
-            
-            
-            //  Calculamos el costo total de acuerdo a las temporadas (Alta, Media o Baja)
-            
-            if( MesInicio == 1 || MesInicio == 7 ){ // temporada alta de acuerdo a las fecha de inicio
-            
-                costoTotal *= 1.30;
-                
-            }else if (MesInicio == 2 || MesInicio == 6){ // temporada media
-            
-                costoTotal *= 1.15;
-            }else{                                      // temporada baja (lo colocamos asi para que quede explicito)
-            
-                costoTotal *= 1;
-            }
-            
-         
+ 
         return costoTotal;
-    
-        
-        
+ 
     }
     
 

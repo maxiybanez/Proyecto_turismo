@@ -58,7 +58,7 @@ public class AlojamientoData {
     }   
         
     //-----------------------------------------------------------------------------------------------------------------------------Actualizar Alojamiento      
-      public boolean actualizarAlojamiento(Alojamiento alojamiento){
+    public boolean actualizarAlojamiento(Alojamiento alojamiento){
           
             boolean estado = false ;                                          
         
@@ -87,8 +87,8 @@ public class AlojamientoData {
         return estado;     
        
     }
-     //----------------------------------------------------------------------------------------------------------------------------DESACTIVAR ALOJAMIENTO 
-     public boolean desactivarAlojamiento(int id){
+    //----------------------------------------------------------------------------------------------------------------------------DESACTIVAR ALOJAMIENTO 
+    public boolean desactivarAlojamiento(int id){
         boolean estado = false ;                                          
         
         String query = "UPDATE alojamiento "
@@ -114,7 +114,7 @@ public class AlojamientoData {
        return estado;   
     }  
     //------------------------------------------------------------------------------------------------------------------------------OBTENER ALOJAMIENTO POR ID
-     public Alojamiento obtenerAlojamientoXId (int id){
+    public Alojamiento obtenerAlojamientoXId (int id){
           Alojamiento alojamientoObj = null;
           String query = "SELECT * "
                               + "FROM alojamiento "
@@ -141,7 +141,7 @@ public class AlojamientoData {
         return alojamientoObj;
     }
     //-----------------------------------------------------------------------------------------------------------------------------OBTENER ALOJAMIENTO POR TIPO
-       public Alojamiento obtenerAlojamientoXTipo (String tipo){
+    public Alojamiento obtenerAlojamientoXTipo (String tipo){
           Alojamiento alojamientoObj = null;
           String query = "SELECT * "
                               + "FROM alojamiento "
@@ -166,7 +166,7 @@ public class AlojamientoData {
 
         return alojamientoObj;
     }
-     //---------------------------------------------------------------------------------------------------------------------------OBTENER TODOS LOS ALOJAMIENTO
+    //---------------------------------------------------------------------------------------------------------------------------OBTENER TODOS LOS ALOJAMIENTO
     public ArrayList<Alojamiento> obtenerTodosLosAlojamiento(){
         
           Alojamiento alojamientoObj = null;
@@ -199,9 +199,8 @@ public class AlojamientoData {
    
         return extraLista; 
     }
-        
-     //---------------------------------------------------------------------------------------------------------------------------OBTENER TODOS LOS ALOJAMIENTO
-     public ArrayList<Alojamiento> obtenerTodosLosAlojamientoActivos(){
+    //---------------------------------------------------------------------------------------------------------------------------OBTENER TODOS LOS ALOJAMIENTO
+    public ArrayList<Alojamiento> obtenerTodosLosAlojamientoActivos(){
             
           Alojamiento alojamientoObj = null;
           ArrayList<Alojamiento> extraLista = new ArrayList<>();
@@ -233,7 +232,7 @@ public class AlojamientoData {
         return extraLista; 
     }
     //---------------------------------------------------------------------------------------------------------------------------OBTENER TODOS LOS ALOJAMIENTO NO ACTIVOS
-     public ArrayList<Alojamiento> obtenerTodosLosAlojamientoNoActivos(){
+    public ArrayList<Alojamiento> obtenerTodosLosAlojamientoNoActivos(){
                  
           Alojamiento alojamientoObj = null;
           ArrayList<Alojamiento> extraLista = new ArrayList<>();
@@ -267,7 +266,7 @@ public class AlojamientoData {
     }
      
     //---------------------------------------------------------------------------------------------------------------------------OBTENER TODOS LOS ALOJAMIENTO POR DESTINO
-     public ArrayList<Alojamiento> obtenerTodosLosAlojamientoXDestino(int destino){
+    public ArrayList<Alojamiento> obtenerTodosLosAlojamientoXDestino(int destino){
                   
           Alojamiento alojamientoObj = null;
           ArrayList<Alojamiento> extraLista = new ArrayList<>();

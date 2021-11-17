@@ -12,6 +12,7 @@ import java.awt.Dimension;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Alojamiento;
 import modelo.Cliente;
@@ -19,6 +20,9 @@ import modelo.Destino;
 import modelo.ExtraAlojamiento;
 import modelo.Paquete;
 import modelo.Transporte;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 
 
 public class Menu extends javax.swing.JFrame {
@@ -35,8 +39,10 @@ public class Menu extends javax.swing.JFrame {
         preCargaBD();
         
         //Centramos el menu
-        this.setLocationRelativeTo(null);                                       
-    
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(this.MAXIMIZED_BOTH);
+        
+         setIconImage( new ImageIcon(getClass().getResource("/imagenes/icono 5.png")).getImage());
                 
     }
 
@@ -49,6 +55,10 @@ public class Menu extends javax.swing.JFrame {
             PreparedStatement prepStatem;
 
             try {
+          
+                query = "DELETE FROM paquete ";
+                prepStatem = conexion.getConexion().prepareStatement(query);
+                prepStatem.executeUpdate();              
 
                 query = "DELETE FROM cliente ";
                 prepStatem = conexion.getConexion().prepareStatement(query);
@@ -70,9 +80,6 @@ public class Menu extends javax.swing.JFrame {
                 prepStatem = conexion.getConexion().prepareStatement(query);
                 prepStatem.executeUpdate();              
                                                                 
-                query = "DELETE FROM paquete ";
-                prepStatem = conexion.getConexion().prepareStatement(query);
-                prepStatem.executeUpdate();              
                        
                 
             } catch (SQLException ex) {
@@ -138,20 +145,20 @@ public class Menu extends javax.swing.JFrame {
         TransporteData transporteData = new TransporteData(conexion);
         
         // Transportes a Mar del Plata
-        Transporte avionMDP = new Transporte(marDelPlata,"Avion MDP",7000,true); 
-        Transporte colectivoMDP = new Transporte(marDelPlata,"Colectivo MDP",3500,true); 
+        Transporte avionMDP = new Transporte(marDelPlata,"Avion MDP",5000,true); 
+        Transporte colectivoMDP = new Transporte(marDelPlata,"Colectivo MDP",3750,true); 
         Transporte autoPropioMDP = new Transporte(marDelPlata,"Auto Propio MDP",0,true); 
  
                 
         // Transportes a Cordoba
-        Transporte avionCBA = new Transporte(cordoba,"Avion CBA",7000,true); 
-        Transporte colectivoCBA = new Transporte(cordoba,"Colectivo CBA",3500,true); 
+        Transporte avionCBA = new Transporte(cordoba,"Avion CBA",5500,true); 
+        Transporte colectivoCBA = new Transporte(cordoba,"Colectivo CBA",3250,true); 
         Transporte autoPropioCBA = new Transporte(cordoba,"Auto Popio CBA",0,true); 
  
                 
         // Transportes a Mendoza
-        Transporte avionMZA = new Transporte(mendoza,"Avion MZA",7000,true); 
-        Transporte colectivoMZA = new Transporte(mendoza,"Colectivo MZA",3500,true); 
+        Transporte avionMZA = new Transporte(mendoza,"Avion MZA",7977,true); 
+        Transporte colectivoMZA = new Transporte(mendoza,"Colectivo MZA",3515,true); 
         Transporte autoPopioMZA = new Transporte(mendoza,"Auto propio MZA",0,true); 
 
         
@@ -162,8 +169,8 @@ public class Menu extends javax.swing.JFrame {
     
         
         // Transportes a Rio de Janeiro
-        Transporte avionRJ = new Transporte(rioDeJaneiro,"Avion RJ",7000,true); 
-        Transporte colectivoRJ = new Transporte(rioDeJaneiro,"Colectivo RJ",3500,true); 
+        Transporte avionRJ = new Transporte(rioDeJaneiro,"Avion RJ",9700,true); 
+        Transporte colectivoRJ = new Transporte(rioDeJaneiro,"Colectivo RJ",5350,true); 
         Transporte autoPopioRJ = new Transporte(rioDeJaneiro,"Auto propio RJ",0,true); 
 
 
@@ -314,17 +321,17 @@ public class Menu extends javax.swing.JFrame {
          extraAlojamientoData.guardarExtraAlo(mediaPension_HT_CCH_CH);
          extraAlojamientoData.guardarExtraAlo(sinPension_HT_CCH_CH);
                 
-         extraAlojamientoData.guardarExtraAlo(sinPension_DPTO_1_CH);
+     //    extraAlojamientoData.guardarExtraAlo(sinPension_DPTO_1_CH);
                   
          extraAlojamientoData.guardarExtraAlo(mediaPension_DPTO_2_CH );
          extraAlojamientoData.guardarExtraAlo(sinPension_DPTO_2_CH);
-         extraAlojamientoData.guardarExtraAlo(sinPension_DPTO_2_CH);
+       
         
    
 
 //*******************************PAQUETE DATA*****************************************
     
-        //--- TESTEMOS CLIENTE DATA --------------------------------------------
+        //--- TESTEMOS PAQUETE DATA --------------------------------------------
 
 
         PaqueteData paqueteData = new PaqueteData(conexion);
@@ -332,13 +339,16 @@ public class Menu extends javax.swing.JFrame {
         Paquete paq_SuarezCarlos_HT_MDP_MPD_Avion = new Paquete(avionMDP, pensionCompleta_HT_MDP_MDP , suarezCarlos, LocalDate.of(2020,03,01), LocalDate.of(2020,11,01), LocalDate.of(2021,12,07), 35700, true); 
         Paquete paq_SuarezCarlos_DPTO_1_MPD_Colectivo = new Paquete(colectivoMDP, sinPension_DPTO_1_MDP, suarezCarlos, LocalDate.of(2021,03,01), LocalDate.of(2021,10,01), LocalDate.of(2021,12,07), 23500, true); 
         
-        Paquete paq_ArceMariana_HT_CCH_CH_Avion = new Paquete(avionMDP, mediaPension_HT_CCH_CH, arceMariana, LocalDate.of(2022,02,20), LocalDate.of(2022,02,28), LocalDate.of(2021,10,19), 40900, true); 
+        Paquete paq_ArceMariana_HT_CCH_CH_Avion = new Paquete(avionMDP, mediaPension_HT_MDP, arceMariana, LocalDate.of(2022,02,20), LocalDate.of(2022,02,28), LocalDate.of(2021,10,19), 40900, true); 
  
-               
+        if (paqueteData.guardarPaquete(paq_ArceMariana_HT_CCH_CH_Avion)){
+
+          JOptionPane.showMessageDialog(null,"La BD fue Borrada y Pre-Cargada!");
+        }      
         
     //************************************************************************************
         
-        JOptionPane.showMessageDialog(null,"La BD fue Borrada y Pre-Cargada!");
+       
     
     }           
     
@@ -350,7 +360,13 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
-        jDPEscritorio = new javax.swing.JDesktopPane();
+        ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/fondo1.jpg"));
+        Image miImagen = icono.getImage();
+        jDPEscritorio = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(miImagen, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         jmiPaquete = new javax.swing.JMenuItem();
@@ -373,11 +389,11 @@ public class Menu extends javax.swing.JFrame {
         jDPEscritorio.setLayout(jDPEscritorioLayout);
         jDPEscritorioLayout.setHorizontalGroup(
             jDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1087, Short.MAX_VALUE)
         );
         jDPEscritorioLayout.setVerticalGroup(
             jDPEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 593, Short.MAX_VALUE)
         );
 
         jmArchivo.setText("Archivo");

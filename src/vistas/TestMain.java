@@ -38,6 +38,11 @@ public class TestMain {
             PreparedStatement prepStatem;
 
             try {
+                
+                
+                query = "DELETE FROM paquete ";
+                prepStatem = conexion.getConexion().prepareStatement(query);
+                prepStatem.executeUpdate();
 
                 query = "DELETE FROM cliente ";
                 prepStatem = conexion.getConexion().prepareStatement(query);
@@ -59,9 +64,7 @@ public class TestMain {
                 prepStatem = conexion.getConexion().prepareStatement(query);
                 prepStatem.executeUpdate();              
                                                                 
-                query = "DELETE FROM paquete ";
-                prepStatem = conexion.getConexion().prepareStatement(query);
-                prepStatem.executeUpdate();              
+                
                                 
                 
                 JOptionPane.showMessageDialog(null,"La BD fue Borrada y Pre-Cargada!");
@@ -616,8 +619,11 @@ public class TestMain {
         
         Paquete paq_ArceMariana_HT_CCH_CH_Avion = new Paquete(avionMDP, mediaPension_HT_CCH_CH, arceMariana, LocalDate.of(2022,02,20), LocalDate.of(2022,02,28), LocalDate.of(2021,10,19), 40900, true); 
  
-            
-        JOptionPane.showMessageDialog(null,"LOS PAQUETES SE GUARDARON SATISFACTORIAMENTE");
+        if (paqueteData.guardarPaquete(paq_ArceMariana_HT_CCH_CH_Avion)){
+
+                JOptionPane.showMessageDialog(null," El Paquete fue guardado Satisfactorioamente!");
+        }
+        
         
     //************************************************************************************
 

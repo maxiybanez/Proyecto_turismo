@@ -129,7 +129,7 @@ public class Alojamiento {
 
     @Override
     public String toString() {
-        return "Alojamiento{" + "idAlojamiento=" + idAlojamiento + ", destino=" + destino + ", tipoAlojamiento=" + tipoAlojamiento + ", costo=" + costo + ", nombre=" + nombre + ", activo=" + activo + '}';
+        return  tipoAlojamiento + "  - \t" + nombre ;
     }
 
    

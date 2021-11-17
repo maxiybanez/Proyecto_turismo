@@ -116,7 +116,7 @@ public class ExtraAlojamiento {
 
     @Override
     public String toString() {
-        return "ExtraAlojamiento{" + "idExtraAlojamiento=" + idExtraAlojamiento + ", alojameinto=" + alojameinto + ", tipoMenu=" + tipoMenu + ", costo=" + costo + ", activo=" + activo + '}';
+        return tipoMenu +"   -\t $"+ costo ;
     }
 
     

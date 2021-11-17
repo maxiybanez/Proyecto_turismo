@@ -113,7 +113,7 @@ public class Transporte {
 
     @Override
     public String toString() {
-        return "Transporte{" + "idTransporte=" + idTransporte + ", destino=" + destino + ", tipoDeTasporte=" + tipoDeTransporte + ", costo=" + costo + ", activo=" + activo + '}';
+        return  tipoDeTransporte + "   -\t $" + costo;
     }
     
     

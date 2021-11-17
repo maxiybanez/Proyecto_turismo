@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Alojamiento;
@@ -25,6 +26,8 @@ public class PaqueteData {
     private TransporteData transporteData;
     private ExtraAlojamientoData extraAlojamientoData;
     private ClienteData clienteData;
+    
+    private DateTimeFormatter f = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     
         //---CONSTRUCTOR--------------------------------------------------------
@@ -44,9 +47,9 @@ public class PaqueteData {
     //---GUARDAR PAQUETE--------------------------------------------------------
     public boolean guardarPaquete(Paquete paqueteParam){
         boolean estado = false;
-        //                                      1            2                3                 4          5            6          7           8           9 
+        //                                      1            2                3                 4          5            6          7           8           
         String query = "INSERT INTO paquete(idTransporte, idExtraAlojamiento,  idCliente, fechaInicio, fechaFin, costoTotal, fechaEmision, activo)" 
-                     + " VALUES (? , ? , ? , ? , ? , ? , ? , ? , ?)"; 
+                     + " VALUES (? , ? , ? , ? , ? , ? , ? , ? )"; 
         
         try {
             
@@ -82,12 +85,13 @@ public class PaqueteData {
        
     //---ACTUALIZAR PAQUETE-----------------------------------------------------
     public boolean actualizarPaquete(Paquete paqueteParam){
+       
         
         boolean estado = false;
         
         String query = "UPDATE paquete "
-                    + " SET (idTransporte = ? , idExtraAlojamiento = ? , idCliente = ? , fechaInicio = ? , fechaFin = ? , costoTotal = ? , fechaEmision = ? , activo = ? ) "
-                    + " WHERE IdPaquete = ? ";   
+                    + "SET idTransporte = ?, idExtraAlojamiento = ?, idCliente = ?, fechaInicio = ?, fechaFin = ?, costoTotal = ?, fechaEmision = ?, activo = ?  "
+                    + "WHERE IdPaquete = ?";   
         
        try {
             
@@ -97,7 +101,7 @@ public class PaqueteData {
             prepStatem.setInt(2, paqueteParam.getExtraAlojamiento().getIdExtraAlojamiento());                  
                  
             prepStatem.setInt(3, paqueteParam.getCliente().getIdCliente());                 
-
+            
             prepStatem.setDate(4, Date.valueOf( paqueteParam.getFechaInicio()));
             prepStatem.setDate(5, Date.valueOf( paqueteParam.getFechaFin()));
             
@@ -116,7 +120,8 @@ public class PaqueteData {
             prepStatem.close();                                                
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error al actualizar paquete!" + ex); 
+            JOptionPane.showMessageDialog(null,"Error al actualizar paquete!" + ex);
+            System.out.println("Actualizar:  " + ex);
         }
                 
         return estado;
@@ -176,10 +181,10 @@ public class PaqueteData {
                   Transporte transporte = transporteData.obtenerTransporteXId( resultSet.getInt("idTransporte") );
                   paqueteObj.setTransporte(transporte);
 
-                  ExtraAlojamiento extraAlojamiento = extraAlojamientoData.obtenerExtraXId(resultSet.getInt("idAlojamiento"));
+                  ExtraAlojamiento extraAlojamiento = extraAlojamientoData.obtenerExtraXId(resultSet.getInt("idExtraAlojamiento"));
                   paqueteObj.setExtraAlojamiento(extraAlojamiento);
 
-                  Cliente cliente = clienteData.buscarClienteXId(resultSet.getInt("idClientee"));
+                  Cliente cliente = clienteData.buscarClienteXId(resultSet.getInt("idCliente"));
                   paqueteObj.setCliente(cliente);
 
                   paqueteObj.setFechaInicio(resultSet.getDate("fechaInicio").toLocalDate());
@@ -225,11 +230,11 @@ public class PaqueteData {
                     Transporte transporte = transporteData.obtenerTransporteXId(resultSet.getInt("idTransporte"));
                     paqueteObj.setTransporte(transporte);
                     
-                    ExtraAlojamiento extraAlojamiento = extraAlojamientoData.obtenerExtraXId(resultSet.getInt("idAlojamiento"));
+                    ExtraAlojamiento extraAlojamiento = extraAlojamientoData.obtenerExtraXId(resultSet.getInt("idExtraAlojamiento"));
                     paqueteObj.setExtraAlojamiento(extraAlojamiento);
                           
                   
-                    Cliente cliente = clienteData.buscarClienteXId(resultSet.getInt("idClientee"));
+                    Cliente cliente = clienteData.buscarClienteXId(resultSet.getInt("idCliente"));
                     paqueteObj.setCliente(cliente);
                     
                     paqueteObj.setFechaInicio(resultSet.getDate("fechaInicio").toLocalDate());
