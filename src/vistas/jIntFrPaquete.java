@@ -118,7 +118,7 @@ public class jIntFrPaquete extends javax.swing.JInternalFrame {
     private void desactivarPaquete(){
         
         
-        if ((paqueteData.obtenerPaqueteXId(idPaqueteSeleccionado)).isActivo()){   //<---Si el paquete esta Activo, llama al metodo desactivar (de Data)
+        if (idPaqueteSeleccionado >= 0 && (paqueteData.obtenerPaqueteXId(idPaqueteSeleccionado)).isActivo()){   //<---Si el paquete esta Activo, llama al metodo desactivar (de Data)
             
             if (paqueteData.desactivarPaquete(idPaqueteSeleccionado)){
                 
@@ -572,7 +572,7 @@ public class jIntFrPaquete extends javax.swing.JInternalFrame {
          
             try{
                 
-                   if(paqueteData.obtenerPaqueteXId(idPaqueteSeleccionado).getIdPaquete() == idPaqueteSeleccionado ){
+                   if(idPaqueteSeleccionado >= 0 && paqueteData.obtenerPaqueteXId(idPaqueteSeleccionado).getIdPaquete() == idPaqueteSeleccionado ){
                         JOptionPane.showMessageDialog(this,"Este paquete ya esta guardado en la BD");
             
                    }else if (jcbxCliente.getSelectedIndex() == -1 ){

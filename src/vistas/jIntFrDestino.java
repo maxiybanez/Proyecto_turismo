@@ -208,7 +208,7 @@ public class jIntFrDestino extends javax.swing.JInternalFrame {
 
         llenarCombo();
         limpiarCampos();
-
+        
     }
     
     
@@ -371,7 +371,7 @@ public class jIntFrDestino extends javax.swing.JInternalFrame {
 
     private void jbtLimpiarCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtLimpiarCamposActionPerformed
         limpiarCampos();
-        jbtGuardar.setEnabled(false);
+        jbtGuardar.setEnabled(true);
     }//GEN-LAST:event_jbtLimpiarCamposActionPerformed
 
     private void jcbDestinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbDestinosActionPerformed
